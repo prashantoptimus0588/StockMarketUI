@@ -20,6 +20,10 @@
   color: var(--muted);
 }
 
+.highlight1{
+  background-color: green;
+}
+
 h1, h2 {
   margin: 0 0 12px;
   font-weight: 650;

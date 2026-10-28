@@ -111,6 +111,8 @@ export default function App() {
         <div>
           <p className="eyebrow">Investing agent</p>
           <h1>Stock assessment</h1>
+          <h2 className='highlight1'>Please try US based stocks for now</h2>
+          <h2 className='highlight1'>Please wait while server is starting...</h2>
         </div>
         <div className={`api-pill ${apiOk === true ? 'ok' : apiOk === false ? 'bad' : ''}`}>
           API {apiOk === true ? 'online' : apiOk === false ? 'offline' : 'checking'}
