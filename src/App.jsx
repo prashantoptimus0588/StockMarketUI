@@ -7,6 +7,7 @@ import {
   streamAssessment,
 } from './api'
 import './App.css'
+import ReactMarkdown from "react-markdown";
 
 const PROFILES = ['aggressive', 'balanced', 'conservative']
 const HORIZONS = ['short', 'medium', 'long']
@@ -185,16 +186,10 @@ export default function App() {
         </section>
       )}
 
-      {result?.report_markdown && (
-        <section className="card">
-          <h2>Report</h2>
-          <pre className="report">{result.report_markdown}</pre>
-        </section>
-      )}
-
       {result?.status === 'awaiting_approval' && (
         <section className="card">
           <h2>Decision</h2>
+          <h5>Your report is ready 👇🏻.Tell your views on that.</h5>
           <label>
             Optional comment
             <textarea
@@ -215,6 +210,16 @@ export default function App() {
           </div>
         </section>
       )}
+
+      {result?.report_markdown && (
+        <section className="card">
+          <h2>Report</h2>
+          <div className="report-content">
+            <ReactMarkdown>{result.report_markdown}</ReactMarkdown>
+          </div>
+        </section>
+      )}
+
 
       {result?.status === 'completed' && result.report_markdown && (
         <section className="card">
