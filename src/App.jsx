@@ -8,6 +8,7 @@ import {
 } from './api'
 import './App.css'
 import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
 
 const PROFILES = ['aggressive', 'balanced', 'conservative']
 const HORIZONS = ['short', 'medium', 'long']
@@ -215,7 +216,9 @@ export default function App() {
         <section className="card">
           <h2>Report</h2>
           <div className="report-content">
-            <ReactMarkdown>{result.report_markdown}</ReactMarkdown>
+            <ReactMarkdown remarkPlugins={[remarkGfm]}>
+              {result.report_markdown}
+            </ReactMarkdown>
           </div>
         </section>
       )}
